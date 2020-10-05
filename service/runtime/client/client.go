@@ -116,13 +116,13 @@ func (s *svc) Create(resource runtime.Resource, opts ...runtime.CreateOption) er
 				},
 			},
 			Options: &pb.CreateOptions{
-				Command:   options.Command,
-				Args:      options.Args,
-				Env:       options.Env,
-				Type:      options.Type,
-				Image:     options.Image,
-				Namespace: options.Namespace,
-				Secrets:   options.Secrets,
+				Command:    options.Command,
+				Args:       options.Args,
+				Env:        options.Env,
+				Type:       options.Type,
+				Image:      options.Image,
+				Namespace:  options.Namespace,
+				Secrets:    options.Secrets,
 				Entrypoint: options.Entrypoint,
 			},
 		}
@@ -358,10 +358,11 @@ func (s *svc) Update(resource runtime.Resource, opts ...runtime.UpdateOption) er
 		req := &pb.UpdateRequest{
 			Resource: &pb.Resource{
 				Service: &pb.Service{
-				Name:     svc.Name,
-				Version:  svc.Version,
-				Source:   svc.Source,
-				Metadata: svc.Metadata,
+					Name:     svc.Name,
+					Version:  svc.Version,
+					Source:   svc.Source,
+					Metadata: svc.Metadata,
+				},
 			},
 			Options: &pb.UpdateOptions{
 				Namespace:  options.Namespace,
